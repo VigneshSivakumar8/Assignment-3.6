@@ -1,0 +1,102 @@
+PROBLEM 1 :
+              Yes, a method with same return type can be overloaded.This is possible by passing different number of arguments to the 
+           overloaded method. With the following logic this is explained.
+     CODE :
+            import java.util.*;
+            public class acad 
+            {
+               public static void main(String args[])
+               {
+                 int a,b,c,ans=0;
+                 Scanner s=new Scanner(System.in);
+                 System.out.println("Choice of operation");
+                 System.out.println("1.Sum of two numbers");
+                 System.out.println("2.Sum of three numbers");
+                 int ch=s.nextInt(); //Choice of user is obtained
+                 switch(ch)
+                 {
+                 case 1 : System.out.println("Enter two numbers");
+                          a=s.nextInt();
+                          b=s.nextInt();
+                          ans=sum(a,b); //Calling the overloaded function for the first choice
+                          System.out.print("Sum of two numbers is : "+ans);
+                          break;
+                 case 2 : System.out.println("Enter three numbers");
+                            a=s.nextInt();
+                            b=s.nextInt();
+                            c=s.nextInt();
+                            ans=sum(a,b,c); //Calling the overloaded function for the second choice
+                            System.out.print("Sum of three numbers is : "+ans);
+                            break;         
+                 }
+
+
+                 }
+               static int sum(int x,int y)
+               {
+                 return x+y;   //Returning the sum of two numbers
+               }
+               static int sum(int x,int y,int z)
+               {
+                 return x+y+z; //Returning the sum of three numbers
+               }
+            }
+     Output :-
+            Choice of operation
+            1.Sum of two numbers
+            2.Sum of three numbers
+            1
+            Enter two numbers
+            10
+            20
+            Sum of two numbers is : 30
+                                       
+PROBLEM 2 :
+      CODE :-
+            import java.util.*;
+            public class acad 
+            {
+               public static void main(String args[])
+               {
+                 int temp;
+                 Scanner s=new Scanner(System.in);
+                 System.out.println("Enter the array size : ");
+                 int n=s.nextInt(); //Obtaining array size as input
+                 int arr[]=new int[n];
+                 System.out.println("Enter the array elements");
+                 for(int i=0;i<n;i++)
+                 {
+                   arr[i]=s.nextInt(); //Obtaining the array elements
+                 }
+                 for(int i=0;i<n;i++)
+                 {
+                   for(int j=i+1;j<n;j++) 
+                       {
+                           if (arr[i] < arr[j]) 
+                           {
+                               temp = arr[i];
+                               arr[i] = arr[j];
+                               arr[j] = temp;
+                           }
+                       }
+                   //Array elements are sorted in descending order
+                 }
+                 for(int i=0;i<arr.length;i++)
+                   System.out.println(arr[i]); //Printing the sorted array
+               }
+            }
+      Output :-
+            Enter the array size : 
+            5
+            Enter the array elements
+            1
+            2
+            3
+            5
+            4
+            Sorted array is 
+            5
+            4
+            3
+            2
+            1
